@@ -49,7 +49,7 @@ class Program
         double RB = R3 + R4;
 
         // Calculo de resistencia equivalente total (paralelo)
-        double Req = 1 / (1 / RA + 1 / RB);
+        double Req = 1.0 / (1.0 / RA + 1.0 / RB);
 
         // Mostrar resultados
         Console.WriteLine("\n----- PARTE II: CIRCUITO ELECTRICO -----");
