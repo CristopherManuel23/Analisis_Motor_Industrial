@@ -73,5 +73,42 @@ class Program
         Console.WriteLine($"Potencia total: {potenciaTotal:F2} W");
         Console.WriteLine($"Corriente en Rama A: {corrienteA:F2} A");
         Console.WriteLine($"Corriente en Rama B: {corrienteB:F2} A");
+
+        // --------------------------------
+        // PARTE III: TRANSFERENCIA DE CALOR
+        // --------------------------------
+
+        // Conductividad termica del aluminio (W/m·°C)
+        double k = 205;
+
+        // Area en metros cuadrados
+        double area = 0.35;
+
+        // Espesor en milimetros (8 mm) → convertir a metros
+        double espesor_mm = 8;
+        double espesor_m = espesor_mm / 1000;  // 0.008 m
+
+        // Temperaturas
+        double T_interior = temperaturaC;  // Viene de la Parte I
+        double T_exterior = 35;
+
+        // Diferencia de temperatura
+        double deltaT = T_interior - T_exterior;
+
+        // Calculo de la transferencia de calor
+        double Q = k * area * (deltaT / espesor_m);
+
+        // Mostrar resultados
+        Console.WriteLine("\n----- PARTE III: TRANSFERENCIA DE CALOR -----");
+        Console.WriteLine($"Temperatura interior: {T_interior:F2} °C");
+        Console.WriteLine($"Temperatura exterior: {T_exterior:F2} °C");
+        Console.WriteLine($"Diferencia de temperatura (ΔT): {deltaT:F2} °C");
+        Console.WriteLine($"Tasa de transferencia de calor (Q): {Q:F2} W");
+
+        // Condicion de alerta
+        if (Q > 800)
+        {
+            Console.WriteLine("⚠ ALERTA: Se requiere sistema de enfriamiento");
+        }
     }
 }
