@@ -34,5 +34,27 @@ class Program
         // Mostrar el error
         Console.WriteLine($"Error relativo del sensor: {errorRelativo:F2} %");
 
+        // --------------------------------
+        // PARTE II: CIRCUITO ELECTRICO
+        // --------------------------------
+
+        // Resistencias segun la matricula 0667
+        double R1 = 10;  // 10 + primer digito (0)
+        double R2 = 25;
+        double R3 = 40;
+        double R4 = 22;  // 15 + ultimo digito (7)
+
+        // Calculo de resistencias en serie
+        double RA = R1 + R2;
+        double RB = R3 + R4;
+
+        // Calculo de resistencia equivalente total (paralelo)
+        double Req = 1 / (1 / RA + 1 / RB);
+
+        // Mostrar resultados
+        Console.WriteLine("\n----- PARTE II: CIRCUITO ELECTRICO -----");
+        Console.WriteLine($"Resistencia Rama A (RA): {RA:F2} Ω");
+        Console.WriteLine($"Resistencia Rama B (RB): {RB:F2} Ω");
+        Console.WriteLine($"Resistencia equivalente total (Req): {Req:F2} Ω");
     }
 }
