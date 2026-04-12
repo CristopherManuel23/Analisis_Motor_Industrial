@@ -5,8 +5,10 @@ class Program
     static void Main()
     {
         //  Analisis Termico y Electrico
-        Console.WriteLine("=========   PRACTICA FINAL =========  ");
-        Console.WriteLine("Analisis Termico y Electrico del Motor\n");
+        Console.WriteLine("==========================================");
+        Console.WriteLine("             PRACTICA FINAL             ");
+        Console.WriteLine("Analisis Termico y Electrico del Motor");
+        Console.WriteLine("==========================================\n");
 
         // PARTE I: TEMPERATURA
 
@@ -98,11 +100,8 @@ class Program
         // Calculo de la transferencia de calor
         double Q = k * area * (deltaT / espesor_m);
 
-        // Mostrar resultados
+        // Mostrar resultado principal (lo que pide la practica)
         Console.WriteLine("\n----- PARTE III: TRANSFERENCIA DE CALOR -----");
-        Console.WriteLine($"Temperatura interior: {T_interior:F2} °C");
-        Console.WriteLine($"Temperatura exterior: {T_exterior:F2} °C");
-        Console.WriteLine($"Diferencia de temperatura (ΔT): {deltaT:F2} °C");
         Console.WriteLine($"Tasa de transferencia de calor (Q): {Q:F2} W");
 
         // Condicion de alerta
@@ -110,5 +109,49 @@ class Program
         {
             Console.WriteLine("⚠ ALERTA: Se requiere sistema de enfriamiento");
         }
+
+        // --------------------------------
+        // PARTE IV: REPORTE FINAL
+        // --------------------------------
+
+        // Datos del estudiante
+        string nombre = "Cristopher Manuel Luna Santos";
+        string matricula = "0667";
+        string fecha = DateTime.Now.ToString("dd/MM/yyyy");
+
+        // Determinar estado del motor
+        string estadoMotor;
+
+        // CRITERIO:
+        // Si la transferencia de calor es muy alta, el motor puede sobrecalentarse
+        // Se define:
+        // Q > 1500 → CRITICO
+        // Q > 800 → ADVERTENCIA
+        // Q <= 800 → NORMAL
+
+        if (Q > 1500)
+        {
+            estadoMotor = "CRITICO";
+        }
+        else if (Q > 800)
+        {
+            estadoMotor = "ADVERTENCIA";
+        }
+        else
+        {
+            estadoMotor = "NORMAL";
+        }
+
+        // Mostrar reporte final
+        Console.WriteLine("\n==========================================");
+        Console.WriteLine("         REPORTE FINAL DEL MOTOR          ");
+        Console.WriteLine("==========================================");
+
+        Console.WriteLine($"Nombre: {nombre}");
+        Console.WriteLine($"Matricula: {matricula}");
+        Console.WriteLine($"Fecha: {fecha}");
+
+        Console.WriteLine("\nEstado del motor: " + estadoMotor);
+        Console.WriteLine("==========================================");
     }
 }
