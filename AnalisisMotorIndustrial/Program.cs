@@ -1,5 +1,6 @@
 ﻿using System;
 
+// Link del video: https://drive.google.com/file/d/1mSkTOcJFQQxNt9iLFRubLaoZU5GIP74S/view?usp=sharing
 class Program
 {
     static void Main()
@@ -15,7 +16,7 @@ class Program
 
         //  Analisis Termico y Electrico
         Console.WriteLine("==========================================");
-        Console.WriteLine("             PRACTICA FINAL             ");
+        Console.WriteLine("             PRACTICA FINAL             ");  
         Console.WriteLine("Analisis Termico y Electrico del Motor");
         Console.WriteLine("==========================================\n");
 
@@ -30,7 +31,7 @@ class Program
         // 4. Calcular el error relativo porcentual (±1.5 °F)
 
         // La temperatura en °F se construye con los ultimos 2 digitos de la matricula
-        // Matricula: 0667 → temperatura = 267 °F
+        // Matricula: 0667 → temperatura en °F = 200.0 + 67 = 267 °F
         double temperaturaF = 267;
 
         // Formula: °C = (°F - 32) × 5/9
@@ -54,7 +55,7 @@ class Program
         Console.WriteLine($"Error relativo del sensor: {errorRelativo:F2} %\n");
 
         // ======================================================
-        // PARTE II: CIRCUITO ELECTRICO
+        // PARTE II: CIRCUITO ELECTRICO MIXTO
         // ======================================================
 
         // LO QUE PIDE LA PRACTICA:
@@ -65,15 +66,15 @@ class Program
         // 5. Calcular corriente en cada rama
 
         // Resistencias segun la matricula 0667
-        double R1 = 10;
+        double R1 = 10; // 10 + primer dígito de matrícula
         double R2 = 25;
         double R3 = 40;
-        double R4 = 22;
+        double R4 = 22; // 15 + último dígito de matrícula
 
-        // Formula: R_total (serie) = R1 + R2
+        // Formula: R_total (serie Rama A) = R1 + R2
         double RA = R1 + R2;
 
-        // Formula: R_total (serie) = R3 + R4
+        // Formula: R_total (serie Rama B) = R3 + R4
         double RB = R3 + R4;
 
         // Formula: Req = 1 / (1/RA + 1/RB)
@@ -92,7 +93,7 @@ class Program
         double corrienteB = voltaje / RB;
 
         Console.WriteLine("==========================================");
-        Console.WriteLine("    PARTE II: CIRCUITO ELECTRICO     ");
+        Console.WriteLine("    PARTE II: CIRCUITO ELECTRICO MIXTO     ");
         Console.WriteLine("==========================================");
         Console.WriteLine($"Resistencia Rama A (RA): {RA:F2} Ω");
         Console.WriteLine($"Resistencia Rama B (RB): {RB:F2} Ω");
@@ -153,13 +154,13 @@ class Program
         // CRITERIO:
         // Q > 1500 → CRITICO
         // Q > 800 → ADVERTENCIA
-        // Q <= 800 → NORMAL
+        // Q <= 700 → NORMAL
 
         if (Q > 1500)
         {
             estadoMotor = "CRITICO";
         }
-        else if (Q > 800)
+        else if (Q > 800)   
         {
             estadoMotor = "ADVERTENCIA";
         }
